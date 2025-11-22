@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:speakzy/core/theme/app_colors.dart';
-import 'features/auth/presentation/pages/login_screen.dart';
+import 'common/blocs/nav/navbar_bloc.dart';
+import 'common/widgets/bottom_nav.dart';
 
 void main() {
   runApp(const MyApp());
 }
-
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -17,18 +19,23 @@ class MyApp extends StatelessWidget {
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (context, child) {
-        return MaterialApp(
-          title: 'Speakzy',
-          debugShowCheckedModeBanner: false,
-          theme: ThemeData(
-            scaffoldBackgroundColor: AppColors.white,
-
-            colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primaryBlue),
+        return MultiBlocProvider(
+          providers: [
+            BlocProvider(create: (_) => NavbarBloc()),
+          ],
+          child: MaterialApp(
+            title: 'Speakzy',
+            debugShowCheckedModeBanner: false,
+            theme: ThemeData(
+              scaffoldBackgroundColor: AppColors.white,
+              textTheme: GoogleFonts.poppinsTextTheme(),
+              colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primaryBlue),
+            ),
+            home: child,
           ),
-          home: child,
         );
       },
-      child: const LoginScreen(),
+      child: BottomNavBarScreen(),
     );
   }
 }

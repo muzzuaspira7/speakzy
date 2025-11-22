@@ -26,9 +26,15 @@ class AppTextStyles {
       );
 
   // /// Body Text
-  static TextStyle bodyLarge({Color color = AppColors.dark}) => GoogleFonts.poppins(
+  static TextStyle bodyLarge({Color color = AppColors.dark, FontWeight fontWeight = FontWeight.w400}) => GoogleFonts.poppins(
         fontSize: 16.sp,
-        fontWeight: FontWeight.w400,
+        fontWeight: fontWeight,
+        color: color,
+      );
+
+        static TextStyle heading({Color color = AppColors.dark, FontWeight fontWeight = FontWeight.w400}) => GoogleFonts.poppins(
+        fontSize: 18.sp,
+        fontWeight: fontWeight,
         color: color,
       );
 
@@ -41,6 +47,12 @@ class AppTextStyles {
   static TextStyle bodySmall({Color color = AppColors.dark}) => GoogleFonts.poppins(
         fontSize: 12.sp,
         fontWeight: FontWeight.w400,
+        color: color,
+      );
+
+        static TextStyle bodySmallBold({Color color = AppColors.primaryBlue}) => GoogleFonts.poppins(
+        fontSize: 12.sp,
+        fontWeight: FontWeight.w600,
         color: color,
       );
 

@@ -20,7 +20,7 @@ class GradientButton extends StatelessWidget {
     this.leadingIcon,
     this.trailingIcon,
     this.isLoading = false,
-    this.height = 52,
+    this.height = 58,
     this.borderRadius = 14,
     this.textStyle,
   });

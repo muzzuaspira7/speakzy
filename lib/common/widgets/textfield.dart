@@ -24,7 +24,7 @@ class ReusableTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.symmetric(vertical: 8.h),
-      padding: EdgeInsets.symmetric(horizontal: 14.w),
+      padding: EdgeInsets.symmetric(horizontal: 14.w, vertical: 4.h),
       decoration: BoxDecoration(
         color: AppColors.grey,
         borderRadius: BorderRadius.circular(12.r),
@@ -44,8 +44,11 @@ class ReusableTextField extends StatelessWidget {
             color: Colors.black45,
           ),
           border: InputBorder.none,
+          prefixIconConstraints: BoxConstraints.tightFor(width: 32.w, height: 32.h),
+          suffixIconConstraints: BoxConstraints.tightFor(width: 32.w, height: 32.h),
           prefixIcon: prefix,
           suffixIcon: suffix,
+          
         ),
       ),
     );
